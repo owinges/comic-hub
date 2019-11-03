@@ -1,0 +1,105 @@
+h1 {
+    margin-top: 0;
+}
+
+mat-toolbar {
+    span:first-child {
+        cursor: pointer;
+    }
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 10px;
+}
+
+.comic-container {
+    display: flex;
+    margin: 0 5px 10px;
+    max-height: 460px;
+    width: 100%;
+
+    img {
+        margin-right: 10px;
+        max-width: 308px;
+    }
+
+    .comic-details {
+        overflow: scroll;
+    }
+
+    .comic-data {
+        display: flex;
+        
+        * {
+            margin-right: 20px;
+        }
+    }
+}
+
+.character-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    border-radius: 5px;
+    cursor: pointer;
+    height: 210px;
+    margin: 5px 10px;
+    overflow: hidden;
+    position: relative;
+    width: 180px;
+
+    &.add-character {
+        align-items: center;
+        background-color: #f8f8f8;
+        border: 1px solid gray;
+        display: flex;
+        font-size: 64px;
+        justify-content: center;
+        transition: .12s ease-in-out;
+        width: 178px;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+
+    img {
+        height: auto;
+        transition: .12s ease-in-out;
+        width: 100%;
+    }
+
+    .card-content {
+        background-color: gray;
+        height: 100%;
+        left: 0;
+        opacity: .6;
+        padding-top: 20px;
+        position: relative;
+        text-align: center;
+        transition: .12s ease-in-out;
+        top: -16px;
+        width: 100%;
+
+        .description {
+            height: 196px;
+            overflow: scroll;
+            padding: 10px;
+        }
+    }
+
+    &:hover {
+        img {
+            opacity: 0;
+            display: none;
+        }
+
+        .card-content {
+            opacity: 1;
+        }
+    }
+}

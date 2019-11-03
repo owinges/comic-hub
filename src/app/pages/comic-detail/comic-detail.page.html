@@ -1,0 +1,38 @@
+<!-- <mat-progress-spinner
+    *ngIf="!comic"
+    color="primary"
+    mode="indeterminate"
+    >
+</mat-progress-spinner> -->
+<mat-toolbar>
+    <span [routerLink]="['/comics']">Comic Hub</span>
+    <span>&nbsp;> {{ comic.name }}</span>
+</mat-toolbar>
+<div class="container" *ngIf="comic">
+    <div class="comic-container">
+        <img [src]="comic.image" [alt]="comic.name">
+        <div class="comic-details">
+            <h1>{{ comic.name }} #{{ comic.issueNumber }}</h1>
+            <div class="comic-data">
+                <p>MSRP: {{ comic.price | currency }}</p>
+                <p>Release date: {{ comic.releaseDate | date }}</p>
+                <p>Pages: {{ comic.pages }}</p>
+            </div>
+            <p>{{ comic.description }}</p>
+        </div>
+    </div>
+    <div class="character-container">
+        <div class="card add-character" (click)="addCharacter()">
+            +
+        </div>
+        <div class="card" *ngFor="let character of comic.characters" (click)="openDialog(character)">
+            <img [src]="character.image ? character.image : character.images" [alt]="character.name">
+            <div class="card-content">
+                <h3>{{ character.name }}</h3>
+                <div class="description">
+                    <p>{{ character.description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<h2 mat-dialog-title>{{ data.character.name }}</h2>
+<mat-dialog-content *ngIf="!editing">
+    <p>{{ data.character.description }}</p>
+</mat-dialog-content>
+<mat-dialog-content *ngIf="editing">
+    <div class="inputs">
+        <mat-form-field>
+            <input
+                required
+                matInput
+                placeholder="Name"
+                [(ngModel)]="data.character.name"
+            >
+        </mat-form-field>
+        <mat-form-field>
+            <input
+                required
+                matInput
+                type="number"
+                placeholder="Number of appearances"
+                [(ngModel)]="data.character.numberOfRoles"
+            >
+        </mat-form-field>
+        <mat-form-field>
+            <textarea
+                required
+                matInput
+                placeholder="Description"
+                [(ngModel)]="data.character.description"
+                rows="6"
+            ></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select
+                required
+                [(ngModel)]="data.character.isGood"
+                placeholder="Good or evil"
+            >
+                <mat-option value="true">Good</mat-option>
+                <mat-option value="false">Evil</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <input
+                matInput
+                placeholder="Image URL"
+                [(ngModel)]="data.character.image ? data.character.image : data.character.images"
+            >
+        </mat-form-field>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button *ngIf="!editing" mat-button (click)="toggleEdit()">Edit</button>
+    <button *ngIf="editing" mat-button (click)="closeDialog()">Save</button>
+    <button *ngIf="!editing" mat-button mat-dialog-close >Close</button>
+</mat-dialog-actions>

@@ -1,0 +1,10 @@
+<div class="card">
+    <img [src]="comic.image" [alt]="comic.name">
+    <div class="card-content" [routerLink]="['/comics', comic.slug]">
+        <h3>{{ comic.name }}</h3>
+        <p>Issue {{ comic.issueNumber }} - {{ comic.price | currency }}</p>
+        <div class="description">
+            <p>{{ comic.description }}</p>
+        </div>
+    </div>
+</div>

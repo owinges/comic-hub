@@ -1,0 +1,46 @@
+.card {
+    border-radius: 5px;
+    height: 360px;
+    margin: 10px 15px;
+    overflow: hidden;
+    position: relative;
+    width: 260px;
+
+    img {
+        height: auto;
+        transition: .12s ease-in-out;
+        width: 100%;
+        z-index: 100;
+    }
+
+    .card-content {
+        background-color: gray;
+        height: 100%;
+        left: 0;
+        opacity: .6;
+        padding-top: 20px;
+        position: relative;
+        text-align: center;
+        transition: .12s ease-in-out;
+        top: -16px;
+        width: 100%;
+        z-index: 20000;
+
+        .description {
+            height: 196px;
+            overflow: scroll;
+            padding: 10px;
+        }
+    }
+
+    &:hover {
+        img {
+            opacity: 0;
+            display: none;
+        }
+
+        .card-content {
+            opacity: 1;
+        }
+    }
+}
