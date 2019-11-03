@@ -1,5 +1,6 @@
 .card {
     border-radius: 5px;
+    cursor: pointer;
     height: 360px;
     margin: 10px 15px;
     overflow: hidden;
@@ -28,8 +29,13 @@
 
         .description {
             height: 196px;
-            overflow: scroll;
             padding: 10px;
+            overflow: scroll;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            &::-webkit-scrollbar { 
+                display: none;
+            }
         }
     }
 

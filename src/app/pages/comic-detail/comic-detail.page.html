@@ -12,11 +12,12 @@
     <div class="comic-container">
         <img [src]="comic.image" [alt]="comic.name">
         <div class="comic-details">
-            <h1>{{ comic.name }} #{{ comic.issueNumber }}</h1>
+            <h1>{{ comic.name }}</h1>
             <div class="comic-data">
                 <p>MSRP: {{ comic.price | currency }}</p>
                 <p>Release date: {{ comic.releaseDate | date }}</p>
                 <p>Pages: {{ comic.pages }}</p>
+                <p>Issue #{{ comic.issueNumber }}</p>
             </div>
             <p>{{ comic.description }}</p>
         </div>
