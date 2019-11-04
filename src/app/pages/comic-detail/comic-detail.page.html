@@ -6,7 +6,7 @@
 </mat-progress-spinner> -->
 <mat-toolbar>
     <span [routerLink]="['/comics']">Comic Hub</span>
-    <span>&nbsp;> {{ comic.name }}</span>
+    <span *ngIf="comic">&nbsp;> {{ comic.name }}</span>
 </mat-toolbar>
 <div class="container" *ngIf="comic">
     <div class="comic-container">
@@ -23,17 +23,22 @@
         </div>
     </div>
     <div class="character-container">
-        <div class="card add-character" (click)="addCharacter()">
-            +
-        </div>
         <div class="card" *ngFor="let character of comic.characters" (click)="openDialog(character)">
-            <img [src]="character.image ? character.image : character.images" [alt]="character.name">
+            <img
+                *ngIf="character.image || character.images"
+                [src]="character.image ? character.image : character.images"
+                [alt]="character.name"
+            >
             <div class="card-content">
+                <button (click)="deleteCharacter(character.id)">X</button>
                 <h3>{{ character.name }}</h3>
                 <div class="description">
                     <p>{{ character.description }}</p>
                 </div>
             </div>
+        </div>
+        <div class="card add-character" (click)="createNewCharacter()">
+            +
         </div>
     </div>
 </div>

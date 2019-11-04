@@ -89,6 +89,14 @@ mat-toolbar {
         transition: .12s ease-in-out;
         width: 100%;
 
+        button {
+            background-color: red;
+            border: none;
+            position: absolute;
+            right: 5px;
+            top: 5px;
+        }
+
         h3 {
             margin: 0;
         }

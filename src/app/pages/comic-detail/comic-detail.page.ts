@@ -15,12 +15,16 @@ export class ComicDetailPageComponent implements OnInit {
   comic: Comic;
 
   constructor(
-    private comicService: ComicService,
+    public comicService: ComicService,
     private route: ActivatedRoute,
     private dialog: MatDialog
   ) { }
 
   ngOnInit() {
+    this.refreshComic();
+  }
+
+  refreshComic() {
     this.comicService.getComics().subscribe(comics => {
       this.comic = comics.find(comic => comic.slug === this.route.snapshot.paramMap.get('slug'));
     });
@@ -35,14 +39,24 @@ export class ComicDetailPageComponent implements OnInit {
       }
     });
 
-    dialogRef.afterClosed().subscribe(char => {
-      if (char) {
-        this.saveNewCharacter(char);
+    dialogRef.afterClosed().subscribe((
+      payload: { char: Character, charIsNew: boolean } = null
+    ) => {
+      if (payload) {
+        const { char, charIsNew } = payload;
+
+        if (charIsNew) {
+          this.comicService.addCharacter(this.comic.id, char);
+        } else {
+          this.comicService.editCharacter(this.comic.id, char);
+        }
+
+        this.refreshComic();
       }
     });
   }
 
-  addCharacter() {
+  createNewCharacter(): void {
     this.openDialog({
       id: this.comic.characters.length,
       name: null,
@@ -53,11 +67,8 @@ export class ComicDetailPageComponent implements OnInit {
     }, true);
   }
 
-  saveNewCharacter(character: Character) {
-    this.comic.characters = [character, ...this.comic.characters];
-  }
-
-  deleteCharacter(id: number) {
-    this.comic.characters = this.comic.characters.filter(character => character.id !== id);
+  deleteCharacter(characterId: number) {
+    this.comicService.deleteCharacter(this.comic.id, characterId);
+    this.refreshComic();
   }
 }
