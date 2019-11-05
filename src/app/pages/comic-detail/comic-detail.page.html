@@ -1,9 +1,3 @@
-<!-- <mat-progress-spinner
-    *ngIf="!comic"
-    color="primary"
-    mode="indeterminate"
-    >
-</mat-progress-spinner> -->
 <mat-toolbar>
     <span [routerLink]="['/comics']">Comic Hub</span>
     <span *ngIf="comic">&nbsp;> {{ comic.name }}</span>
@@ -33,8 +27,8 @@
                 <button (click)="deleteCharacter(character)">X</button>
                 <h3>{{ character.name }}</h3>
                 <div class="description">
-                    <p>{{ character.isGood === 'true' ? 'Character is good' : 'Character is evil' }}</p>
-                    <p>Appearances: {{ character.numberOfRoles }}</p>
+                    <p *ngIf="character.isGood">{{ character.isGood === 'true' ? 'Character is good' : 'Character is evil' }}</p>
+                    <p *ngIf="character.numberOfRoles">Appearances: {{ character.numberOfRoles }}</p>
                     <p>{{ character.description }}</p>
                 </div>
             </div>

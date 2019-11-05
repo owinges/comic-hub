@@ -11,18 +11,7 @@ import { ComicListItemComponent } from './components/comic/comic-list-item/comic
 import { CharacterEditModalComponent } from './components/character/character-edit-modal/character-edit-modal.component';
 import { ComicsPageComponent } from './pages/comics/comics.page';
 import { ComicDetailPageComponent } from './pages/comic-detail/comic-detail.page';
-
-import { MatCardModule } from '@angular/material/card';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatListModule } from '@angular/material/list';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatSelectModule } from '@angular/material/select';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -39,17 +28,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    MatCardModule,
-    MatProgressSpinnerModule,
-    MatListModule,
-    MatDialogModule,
-    MatButtonModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatCheckboxModule,
-    MatSelectModule,
-    MatSnackBarModule,
-    MatToolbarModule
+    SharedModule
   ],
   providers: [],
   entryComponents: [CharacterEditModalComponent],
