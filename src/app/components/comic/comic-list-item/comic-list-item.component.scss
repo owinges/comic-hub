@@ -1,11 +1,11 @@
 .card {
     border-radius: 5px;
     cursor: pointer;
-    height: 360px;
+    height: 388px;
     margin: 10px 15px;
     overflow: hidden;
     position: relative;
-    width: 260px;
+    width: 270px;
 
     img {
         height: auto;
@@ -15,7 +15,8 @@
     }
 
     .card-content {
-        background-color: gray;
+        background-color: #607d8b;
+        color: #fff;
         height: 100%;
         left: 0;
         opacity: .6;
@@ -35,6 +36,10 @@
             scrollbar-width: none;
             &::-webkit-scrollbar { 
                 display: none;
+            }
+
+            p {
+                margin: 0;
             }
         }
     }

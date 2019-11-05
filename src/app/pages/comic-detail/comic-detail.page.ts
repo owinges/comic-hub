@@ -67,8 +67,12 @@ export class ComicDetailPageComponent implements OnInit {
     }, true);
   }
 
-  deleteCharacter(characterId: number) {
-    this.comicService.deleteCharacter(this.comic.id, characterId);
-    this.refreshComic();
+  deleteCharacter(character: Character) {
+    const confirmation = confirm(`Are you sure you want to delete ${character.name}?`);
+
+    if (confirmation) {
+      this.comicService.deleteCharacter(this.comic.id, character.id);
+      this.refreshComic();
+    }
   }
 }

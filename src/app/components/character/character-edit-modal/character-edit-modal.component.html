@@ -1,4 +1,7 @@
-<h2 mat-dialog-title>{{ data.character.name }}</h2>
+<div class="header">
+    <h2 mat-dialog-title *ngIf="!editing">{{ data.character.name }} {{ goodOrEvil }}</h2>
+    <h2 mat-dialog-title *ngIf="isHot">🔥HOT🔥</h2>
+</div>
 <mat-dialog-content *ngIf="!editing">
     <p>{{ data.character.description }}</p>
 </mat-dialog-content>

@@ -29,10 +29,12 @@
                 [src]="character.image ? character.image : character.images"
                 [alt]="character.name"
             >
-            <div class="card-content">
-                <button (click)="deleteCharacter(character.id)">X</button>
+            <div class="card-content" [ngClass]="{ evil: character.isGood !== 'true' }">
+                <button (click)="deleteCharacter(character)">X</button>
                 <h3>{{ character.name }}</h3>
                 <div class="description">
+                    <p>{{ character.isGood === 'true' ? 'Character is good' : 'Character is evil' }}</p>
+                    <p>Appearances: {{ character.numberOfRoles }}</p>
                     <p>{{ character.description }}</p>
                 </div>
             </div>

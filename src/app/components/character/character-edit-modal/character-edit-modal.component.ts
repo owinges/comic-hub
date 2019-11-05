@@ -9,6 +9,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class CharacterEditModalComponent implements OnInit {
   editing = false;
+  isHot = this.data.character.numberOfRoles > 2000 ? true : false;
+  goodOrEvil = this.data.character.isGood === 'true' ? '😇' : '👿';
 
   constructor(
     public dialogRef: MatDialogRef<CharacterEditModalComponent>,
