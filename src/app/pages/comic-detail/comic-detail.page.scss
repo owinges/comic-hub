@@ -79,7 +79,7 @@ mat-toolbar {
     }
 
     .card-content {
-        background-color: #4caf50;
+        background: linear-gradient(to right, #1d6503, #52c234);
         height: 100%;
         left: 0;
         opacity: .6;
@@ -90,7 +90,7 @@ mat-toolbar {
         width: 100%;
 
         &.evil {
-            background-color: #f44336;
+            background: linear-gradient(to right, #ed213a, #93291e);
         }
 
         button {

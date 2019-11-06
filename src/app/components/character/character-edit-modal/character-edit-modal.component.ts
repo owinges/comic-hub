@@ -19,7 +19,7 @@ export class CharacterEditModalComponent implements OnInit {
   ) { }
 
   closeDialog(): void {
-     if (this.data.isNew) {
+    if (this.data.isNew) {
       this.openSnackBar('New character saved!', 'Close');
       this.dialogRef.close({
         char: this.data.character,
